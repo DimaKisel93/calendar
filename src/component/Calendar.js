@@ -1,43 +1,70 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Fragment} from "react";
 import moment from "moment";
+import buildCalendar from './BuildCalendar'
+import CalendarHeader from './Header'
 
 function Calendar() {
     const [calendar,setCalendar] = useState([]);
     const [value, setValue] = useState(moment());
-    const startDay = value.clone().startOf("month");
-    const endDay = value.clone().endOf("month");
+    const [time, setTime] = useState(new Date)
+    moment.updateLocale('en', {
+        months : [
+            "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль",
+            "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+        ],
+        week:{dow:1}
+    });
     
+    function tick(){
+        setTime(new Date)
+    }
     useEffect(() => {
-        const day = startDay.clone().subtract(1,"day");
-        const a = [];
-        while(day.isBefore(endDay, "day")){
-            a.push(
-                Array(7)
-                .fill(0)
-                .map(() => day.add(1, "day").clone())
-            );
-        }
-        setCalendar(a);
+        setInterval(tick, 1000);
+        setCalendar(buildCalendar(value));
     }, [value])
 
-   
+    
+
     return (
-        <div className="calendar">
-            {calendar.map((week) => (
-                <div> 
-                {
-                    week.map((day) => (
-                    <div className="day"
-                        onClick={() => setValue(day)}
-                    >
-                        <div className={value.isSame(day , "day")}>
-                            {day.format("D").toString()}
-                        </div>
-                    </div> 
-                    ))}
+        <Fragment>
+            <div className="time">
+                <div className="time__current">
+                    {time.toLocaleTimeString()}
                 </div>
-            ))}
-        </div>
+                <div className="date">
+                   {moment().format('DD MMMM YYYY')}
+                </div>
+            </div>
+            <hr className="line"/>
+            <div className="calendar">
+                <CalendarHeader value={value} setValue={setValue} />
+                <body>
+                    <div className="days__name">
+                        {
+                            ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб" , "Вс"].map( (d) => (
+                                <div className="day">{d}</div>
+                                ) 
+                            )
+                        }
+                    </div>
+                    {calendar.map((week) => (
+                            <div> 
+                            {
+                                week.map((day) => (
+                                <div className="day"
+                                    onClick={() => setValue(day)}
+                                >
+                                    <div className={value.isSame(day , "day") ? "selected" : ""}>
+                                        {day.format("D").toString()}
+                                    </div>
+                                    
+                                </div>
+                                ))}
+                            </div>
+                        ))}
+                </body>
+            </div>
+        </Fragment>    
     );
 }
 

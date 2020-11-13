@@ -2,39 +2,13 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+  background-color: #494d4e;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body{
+  background-color: #494d4e;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .calendar .day{
@@ -42,10 +16,61 @@
   width: calc(100% / 7);
   height: 44px;
   display: inline-block;
-  background-color: white;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   z-index: 1;
   text-align: center;
+}
+
+.selected{
+  background-color: darkblue;
+  color: white;
+  height: 95%;
+  border: 1px solid black;
+}
+
+.header{
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons{
+  display: flex;
+  fill: white;
+}
+
+.current{
+  margin-right: 800px;
+}
+
+.previous{
+  margin-right: 35px;
+  
+}
+
+.current__title{
+  color: white;
+}
+
+.days__name{
+  display: flex;
+}
+
+.time{
+  background-color: #494d4e;
+  color: white;
+  padding-left: 87px;
+}
+
+.line{
+  margin: 0;
+}
+
+.time__current{
+  font-size: -webkit-xxx-large;
+}
+
+.date{
+  color: darkblue;
 }
