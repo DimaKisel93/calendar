@@ -6,7 +6,11 @@ import CalendarHeader from './Header'
 function Calendar() {
     const [calendar,setCalendar] = useState([]);
     const [value, setValue] = useState(moment());
-    const [time, setTime] = useState(new Date)
+    const [time, setTime] = useState(new Date);
+    
+    const firstDayMonth = value.clone().startOf("month");
+    const lastDayMonth = value.clone().endOf("month");
+
     moment.updateLocale('en', {
         months : [
             "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль",
@@ -23,7 +27,6 @@ function Calendar() {
         setCalendar(buildCalendar(value));
     }, [value])
 
-    
 
     return (
         <Fragment>
@@ -51,7 +54,7 @@ function Calendar() {
                             <div> 
                             {
                                 week.map((day) => (
-                                <div className="day"
+                                <div className={day >= firstDayMonth && day <= lastDayMonth ? "day" : "outday"}
                                     onClick={() => setValue(day)}
                                 >
                                     <div className={value.isSame(day , "day") ? "selected" : ""}>
