@@ -3,7 +3,7 @@ import React from "react"
 import {ReactComponent as ArrowUp} from '../img/up-arrow-angle_icon-icons.com_73127.svg';
 import {ReactComponent as ArrowDown} from '../img/downarrow2_89392.svg';
 
-export default function CalendarHeader({value , setValue}){
+export default function CalendarHeader({value , setValue , setIsSelected}){
     function currMothName(){
         return value.format("MMMM")
     }
@@ -25,8 +25,8 @@ export default function CalendarHeader({value , setValue}){
                  <div className="current__title">{currMothName()} {currYearName()}</div>
             </div>
             <div className="buttons">
-                <div className="previous" onClick={() => setValue(handlePrevMoth())}><ArrowUp /></div>  
-                <div className="next" onClick={() => setValue(handleNextMoth())}><ArrowDown /></div> 
+                <div className="previous" onClick={() =>  setValue(handlePrevMoth()) || setIsSelected(false)}><ArrowUp /></div>  
+                <div className="next" onClick={() =>  setValue(handleNextMoth()) || setIsSelected(false)}><ArrowDown /></div> 
             </div>
         </div>
     )

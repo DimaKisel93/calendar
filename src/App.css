@@ -3,49 +3,54 @@
 }
 
 .header{
-  background-color: #494d4e;
+  background-color: #2f3030;
 }
 
 body{
-  background-color: #494d4e;
+  background-color: #2f3030;
   color: white;
 }
 
-.calendar .day{
-  position: relative;
-  width: calc(100% / 7);
-  height: 44px;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  z-index: 1;
-  text-align: center;
+table{
+  width: 700px;
 }
 
 .selected{
-  background-color: darkblue;
+  box-sizing: border-box;
+  color: white;
+  outline: 3px solid #1a5e8f;
+  outline-offset: -1px;
+  height: 100%;
+  display: flex;
+  width: 100%;
+}
+
+.today{
+  background-color: #1a5e8f;
   color: white;
   height: 95%;
-  border: 1px solid black;
+  outline: 1px solid black;
+  height: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .header{
   display: flex;
-  justify-content: space-around;
 }
 
 .buttons{
   display: flex;
   fill: white;
+  padding-top: 40px;
 }
 
 .current{
-  margin-right: 800px;
+  padding: 40px 406px 40px 40px
 }
 
 .previous{
-  margin-right: 35px;
+  margin-right: 80px;
   
 }
 
@@ -53,14 +58,11 @@ body{
   color: white;
 }
 
-.days__name{
-  display: flex;
-}
-
 .time{
-  background-color: #494d4e;
+  background-color: #2f3030;
   color: white;
-  padding-left: 87px;
+  padding-left: 40px;
+  padding-bottom: 25px;
 }
 
 .line{
@@ -72,18 +74,27 @@ body{
 }
 
 .date{
-  color: darkblue;
+  color: #1a5e8f;
 }
 
-.outday{
-  color: burlywood;
-  position: relative;
+.outMonthDay{
+  color: white;
+  opacity: .4;
   width: calc(100% / 7);
-  height: 44px;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  z-index: 1;
-  text-align: center;
+  height: 70px;
+}
+
+.number{
+  margin: 38px;
+}
+
+.inside__day{
+  height: 100%;
+  display: flex;
+  width: 100%;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
