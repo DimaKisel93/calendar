@@ -4,8 +4,6 @@ import CalendarHeader from './Header'
 import CalendarTable from "./CalendarTable";
 import Weather from "./Weather";
 import Time from "./Time";
-import buildCalendar from './BuildCalendar';
-
 
 function Calendar() {
     const [calendar,setCalendar] = useState([]);
@@ -17,10 +15,10 @@ function Calendar() {
         setTime(new Date())
     }
 
-    useEffect(() => {
-        setInterval(tick, 1000);
-        setCalendar(buildCalendar(value));
-    }, [value])
+    // useEffect(() => {
+    //     setInterval(tick, 1000);
+    //     setCalendar(buildCalendar(value));
+    // }, [value])
 
     moment.updateLocale('en', {
         months : [
