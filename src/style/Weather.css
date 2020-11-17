@@ -9,14 +9,14 @@
     margin: 0 auto;
   }
   
-  .info {
-    background-color: #484747;
+  .weather {
+    background-color: #2f3030;
+    flex-direction: column;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #000;
   }
   
   .form {
