@@ -15,14 +15,15 @@ function Calendar() {
     const [isSelected, setIsSelected] = useState(false);
     const [time, setTime] = useState(new Date);
     
-    function tick(){
-        setTime(new Date())
-    }
+   
 
     useEffect(() => {
+        function tick(){
+            setTime(new Date())
+        }
         setInterval(tick, 1000);
         setCalendar(buildCalendar(value));
-    }, [])
+    }, [value])
 
     moment.updateLocale('en', {
         months : [

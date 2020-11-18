@@ -11,6 +11,7 @@
     "chart.js": "^2.9.4",
     "chartjs-plugin-zoom": "^0.7.7",
     "classnames": "^2.2.6",
+    "eslint-plugin-react-hooks": "0.0.0-8e5adfbd7",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-chartjs-2": "^2.11.1",

@@ -11,7 +11,7 @@ export default function Weather(){
     const [inputCity, setInputCity] = useState([]);
     const [input, setInput] = useState("");
     // const [search, setSearch] = useState('');
-    const [error, setError] = useState(undefined);
+    const [isError, setIsError] = useState(undefined);
     const [url, setUrl] = useState(
       `https://api.openweathermap.org/data/2.5/weather?q=Minsk&appid=125068128513a6c2a72f650bc8020952&units=metric`,
     );
@@ -42,7 +42,7 @@ export default function Weather(){
         };
         fetchData();
       }
-    }, [ourCity, url]);
+    }, [ourCity,input, url]);
 
     // useEffect(() => {
     //   console.log(input)

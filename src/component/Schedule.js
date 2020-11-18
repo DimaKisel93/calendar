@@ -1,12 +1,16 @@
 import React, {useState, useEffect, useRef } from 'react';
 import Chartjs from 'chart.js';
 import { Bar } from "react-chartjs-2";
+
 import '../style/Chart.css';
+
+require ('./RoundedBars.js')
 
 export default function Schedule() {
     const [chartData, setChartData] = useState({});
     
     const options = {
+        cornerRadius: 45,
         responsive: true,
         tooltips: {
           mode: 'label'
@@ -14,6 +18,13 @@ export default function Schedule() {
         elements: {
           line: {
             fill: false
+          }
+        },
+        legend:{
+          display: true,
+          align: 'end',
+          labels: {
+            usePointStyle: true,
           }
         },
         scales: {
@@ -58,7 +69,7 @@ export default function Schedule() {
     const plugins = [{
         afterDraw: (chartInstance, easing) => {
             const ctx = chartInstance.chart.ctx;
-            ctx.fillText("This text drawn by a plugin", 100, 100);
+            ctx.fillText("Team OutPut", 50, 20);
         }
     }];
 
@@ -88,7 +99,7 @@ export default function Schedule() {
             hoverBackgroundColor: '#1026eb',
             hoverBorderColor: '#1026eb',
             yAxisID: 'y-axis-1'
-          }]
+          }],
       });
     };
   
@@ -98,7 +109,6 @@ export default function Schedule() {
   
     return (
       <div className="App">
-        <h1>Chart</h1>
         <div>
           <Bar
             data={chartData}
