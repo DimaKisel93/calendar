@@ -11,27 +11,27 @@ export default function Weather(){
     const [inputCity, setInputCity] = useState([]);
     const [input, setInput] = useState("");
     // const [search, setSearch] = useState('');
-    const [isError, setIsError] = useState(undefined);
+    // const [isError, setIsError] = useState(false);
     const [url, setUrl] = useState(
       `https://api.openweathermap.org/data/2.5/weather?q=Minsk&appid=125068128513a6c2a72f650bc8020952&units=metric`,
     );
    
     useEffect(() => {
       const fetchOurCity = async () => {
+          // setIsError(false)
           try {
             const result = await axios.get(`http://api.ipstack.com/134.17.6.31?access_key=25ddb41452e0bddf93c2b6dd839b0a75&output=json`);
             setOurCity(result.data.city)
             const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${ourCity}&appid=125068128513a6c2a72f650bc8020952&units=metric`);
             setDataCity(data)
           } catch (error) {
-            // error.status = 400;
-            // setError(error)
-            console.log("Ошибка")
+            // setIsError(true)
           }
       };
       fetchOurCity();
       if(input){
         const fetchData = async () => {
+          // setIsError(false)
           try {
             const result = await axios.get(url);
             setInputCity(result)
@@ -43,22 +43,6 @@ export default function Weather(){
         fetchData();
       }
     }, [ourCity,input, url]);
-
-    // useEffect(() => {
-    //   console.log(input)
-    //   if(input){
-    //     const fetchData = async () => {
-    //       try {
-    //         const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=125068128513a6c2a72f650bc8020952&units=metric`);
-    //         setDataCity(result)
-    //       } catch (error) {
-    //           error.status = 400;
-    //           console.log("Ошибка")
-    //       }
-    //     };
-    //     fetchData();
-    //   }
-    // }, []);
 
     return(
         <div className="wrapper">

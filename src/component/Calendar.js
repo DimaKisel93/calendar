@@ -15,8 +15,6 @@ function Calendar() {
     const [isSelected, setIsSelected] = useState(false);
     const [time, setTime] = useState(new Date);
     
-   
-
     useEffect(() => {
         function tick(){
             setTime(new Date())
@@ -44,8 +42,8 @@ function Calendar() {
                 </div>
                 <Weather />
             </div>
-            <Schedule />
-            {/* <Chart /> */}
+            {/* <Schedule /> */}
+            <Chart />
            
           
         </Fragment>    

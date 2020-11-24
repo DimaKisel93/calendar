@@ -1,11 +1,10 @@
 import React, { Fragment } from "react";
 
-export default function WeatherInfo({dataCity, inputCity, error}){
-    console.log(dataCity)
-    console.log(inputCity)
+export default function WeatherInfo({dataCity, inputCity, isError}){
     
     return(
         <Fragment>
+            {/* {isError && <div>Something went wrong ...</div>} */}
             {(inputCity.length) === 0 ?
                 (
                     (dataCity.length !== 0) ?
