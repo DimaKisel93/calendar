@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useSelector } from 'react-redux';
 export default function WeatherInfo(){
-    const dataCity = useSelector(state => state.data.fetchedPosts)
+    const dataCity = useSelector(state => state.data.ourData)
     const dataCityInput = useSelector(state => state.data.inputData)
 
     return(

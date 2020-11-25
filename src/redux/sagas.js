@@ -9,12 +9,12 @@ export function* sagaWatcher(){
 
 function* sagaWorker(input){
     yield put(showLoader())
-    const payload = yield call(fetchData)
-    yield put({type: FETCH_DATA , payload})
     if(input.input !== ""){
         const payloadInput = yield call(fetchInputData, input)
         yield put({type: FETCH_DATA_INPUT , payloadInput})
     }
+    const payload = yield call(fetchData)
+    yield put({type: FETCH_DATA , payload})
     yield put(hideLoader()) 
 }
 
