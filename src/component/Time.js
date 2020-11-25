@@ -11,5 +11,4 @@ export default function Time({time}){
         </div>
     </div>
     )
-
 }

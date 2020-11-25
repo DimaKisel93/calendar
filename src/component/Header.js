@@ -1,9 +1,9 @@
 import React from "react"
-
 import {ReactComponent as ArrowUp} from '../img/up-arrow-angle_icon-icons.com_73127.svg';
 import {ReactComponent as ArrowDown} from '../img/downarrow2_89392.svg';
 
 export default function CalendarHeader({value , setValue , setIsSelected}){
+
     function currMothName(){
         return value.format("MMMM")
     }
@@ -19,6 +19,7 @@ export default function CalendarHeader({value , setValue , setIsSelected}){
     function handleNextMoth(){
         return value.clone().add(1 , "month")
     }
+
     return(
         <div className="header">
             <div className="current">
@@ -30,5 +31,4 @@ export default function CalendarHeader({value , setValue , setIsSelected}){
             </div>
         </div>
     )
-
 }

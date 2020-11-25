@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import Form from "./FormWeather";
 import WeatherInfo from "./WeatherInfo";
 import Info from "./Info";
 import '../style/Weather.css';
 import { fetchData } from "../redux/actions/createDataActions";
-import { connect, useDispatch, useSelector } from 'react-redux';
-import {bindActionCreators} from 'redux'
+import {  useDispatch, useSelector } from 'react-redux';
 
 export default function Weather(){
     const [input, setInput] = useState("");

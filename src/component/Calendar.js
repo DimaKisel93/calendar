@@ -3,11 +3,9 @@ import moment from "moment";
 import CalendarHeader from './Header'
 import CalendarTable from "./CalendarTable";
 import Weather from "./Weather";
-import Schedule from "./Schedule";
 import Chart from "./Chart";
 import Time from "./Time";
 import buildCalendar from "./BuildCalendar";
-
 
 function Calendar() {
     const [calendar,setCalendar] = useState([]);
@@ -42,13 +40,9 @@ function Calendar() {
                 </div>
                 <Weather />
             </div>
-            {/* <Schedule /> */}
             <Chart />
-           
-          
         </Fragment>    
     );
 }
-
 
 export default Calendar

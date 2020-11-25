@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 import { fetchData } from "../redux/actions/createDataActions";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export default function Form({input, setInput}){
+
     const dispatch = useDispatch();
+
     return(
         <Fragment>
             <label>Узнать погоду</label>

@@ -1,12 +1,13 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { useSelector } from 'react-redux';
+
 export default function WeatherInfo(){
+
     const dataCity = useSelector(state => state.data.ourData)
     const dataCityInput = useSelector(state => state.data.inputData)
 
     return(
         <Fragment>
-            {/* {isError && <div>Something went wrong ...</div>} */}
             {(dataCityInput.length) === 0 ?
                 (
                     (dataCity.length !== 0) ?
