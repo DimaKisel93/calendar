@@ -1,18 +1,20 @@
 import React, { Fragment } from "react";
+import { useSelector } from 'react-redux';
+export default function WeatherInfo(){
+    const dataCity = useSelector(state => state.data.fetchedPosts)
+    const dataCityInput = useSelector(state => state.data.inputData)
 
-export default function WeatherInfo({dataCity, inputCity, isError}){
-    
     return(
         <Fragment>
             {/* {isError && <div>Something went wrong ...</div>} */}
-            {(inputCity.length) === 0 ?
+            {(dataCityInput.length) === 0 ?
                 (
                     (dataCity.length !== 0) ?
                         (
                             <div className="info__Weather">
-                            <p>Местоположение: {dataCity.data.name}</p> 
-                            <p>Температура: {dataCity.data.main.temp}&deg;</p> 
-                            <p>Влажность: {dataCity.data.main.humidity}%</p> 
+                            <p>Местоположение: {dataCity.name}</p> 
+                            <p>Температура: {dataCity.main.temp}&deg;</p> 
+                            <p>Влажность: {dataCity.main.humidity}%</p> 
                         </div>
                         ) :
                         (
@@ -21,10 +23,11 @@ export default function WeatherInfo({dataCity, inputCity, isError}){
                 ) :
                 ( 
                 <div className="info__Weather">
-                    <p>Местоположение: {inputCity.data.name}</p> 
-                    <p>Температура: {inputCity.data.main.temp}&deg;</p> 
-                    <p>Влажность: {inputCity.data.main.humidity}%</p> 
+                    <p>Местоположение: {dataCityInput.name}</p> 
+                    <p>Температура: {dataCityInput.main.temp}&deg;</p> 
+                    <p>Влажность: {dataCityInput.main.humidity}%</p> 
                 </div>) 
+                
             }
         </Fragment>
     )
