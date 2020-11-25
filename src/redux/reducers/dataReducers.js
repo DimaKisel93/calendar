@@ -1,4 +1,4 @@
-import { FETCH_DATA,FETCH_DATA_INPUT, REQUEST_TODOS } from "../constants"
+import { FETCH_DATA,FETCH_DATA_INPUT } from "../constants";
 
 const initialState = {
     ourData: [],

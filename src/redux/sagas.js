@@ -32,6 +32,7 @@ async function fetchData(){
 }
 
 async function fetchInputData(input){
+    debugger;
     try {
         const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${input.input}&appid=125068128513a6c2a72f650bc8020952&units=metric`);
         const dataCity = result.data;

@@ -1,4 +1,4 @@
-import { HIDE_LOADER, SHOW_LOADER, FETCH_DATA, REQUEST_TODOS } from "../constants"
+import { HIDE_LOADER, SHOW_LOADER, REQUEST_TODOS } from "../constants"
 
 export function fetchData(input){
     return {
