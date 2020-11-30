@@ -1,28 +1,24 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Form from "./FormWeather";
 import WeatherInfo from "./WeatherInfo";
 import Info from "./Info";
 import '../style/Weather.css';
-import { fetchData } from "../redux/actions/createDataActions";
-import {  useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Weather(){
-    const [input, setInput] = useState("");
-    const dispatch = useDispatch();
-    const loading = useSelector(state => state.app.loading)
-   
-     useEffect(() => {
-       dispatch(fetchData(input))
-     }, [dispatch])
-
-    if(loading){
-      return (
-        <div className="spinner-border text-danger" role="status">
-            <span className="sr-only">Loading...</span>
-        </div>
-      )
-    }
     
+    const dataCity = useSelector(state => state.data.ourData)
+    const dataCityInput = useSelector(state => state.data.inputData)
+
+    //Single Responsibility Principle
+
+    // const [input, setInput] = useState("");
+    // const dispatch = useDispatch();
+    
+    // useEffect(() => {
+    //   dispatch(fetchData(input))
+    // }, [dispatch])
+
     return ( 
       <div className="wrapper">
           <div className="main">
@@ -32,10 +28,36 @@ export default function Weather(){
                   <Info />
                 </div>
                 <div className="col-xs-12 col-sm-7 col-md-8 form">
-                  <Form  input={input} setInput={setInput} />   
+                  {/* Single Responsibility Principle */}
+                  {/* <Form  input={input} setInput={setInput}/>    */}
+                  <Form />   
                 </div>
               </div>
-              <WeatherInfo /> 
+              <WeatherInfo>
+                   {/* Open Close Principle */}
+                  {(dataCityInput.length) === 0 ?
+                          (
+                              (dataCity.length !== 0) ?
+                                  (
+                                      <div className="info__Weather">
+                                      <p>Местоположение: {dataCity.name}</p> 
+                                      <p>Температура: {dataCity.main.temp}&deg;</p> 
+                                      <p>Влажность: {dataCity.main.humidity}%</p> 
+                                  </div>
+                                  ) :
+                                  (
+                                      <div>Загрузка данных</div>
+                                  ) 
+                          ) :
+                          ( 
+                          <div className="info__Weather">
+                              <p>Местоположение: {dataCityInput.name}</p> 
+                              <p>Температура: {dataCityInput.main.temp}&deg;</p> 
+                              <p>Влажность: {dataCityInput.main.humidity}%</p> 
+                          </div>
+                          ) 
+              }
+              </WeatherInfo> 
             </div>
           </div>  
         </div>

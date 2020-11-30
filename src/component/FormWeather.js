@@ -1,10 +1,16 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { fetchData } from "../redux/actions/createDataActions";
 import { useDispatch } from 'react-redux';
 
-export default function Form({input, setInput}){
-
+export default function Form(){
+    //Single Responsibility Principle
+    const [input, setInput] = useState("");
     const dispatch = useDispatch();
+
+    //Dependency inversion principle
+    useEffect(() => {
+      dispatch(fetchData(input))
+    }, [dispatch])
 
     return(
         <Fragment>

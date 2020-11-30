@@ -1,10 +1,16 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import dayStyles from './Style';
+import buildCalendar from "./BuildCalendar";
 
-export default function CalendarTable({value, setValue, isSelected, setIsSelected, calendar}){
+export default function CalendarTable({value, setValue, isSelected, setIsSelected}){
+    const [calendar,setCalendar] = useState([]);
     
     const firstDayMonth = value.clone().startOf("month");
     const lastDayMonth = value.clone().endOf("month");
+
+    useEffect(() => {
+        setCalendar(buildCalendar(value));
+    }, [value])
 
     return(
         <table>

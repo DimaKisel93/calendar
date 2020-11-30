@@ -1,14 +1,16 @@
 import { Fragment } from "react";
-import { useSelector } from 'react-redux';
 
-export default function WeatherInfo(){
-
-    const dataCity = useSelector(state => state.data.ourData)
-    const dataCityInput = useSelector(state => state.data.inputData)
+export default function WeatherInfo(props){
 
     return(
         <Fragment>
-            {(dataCityInput.length) === 0 ?
+            {/* Open Close Principle */}
+            <div>
+                <h4>Данные по погоде</h4>
+                {props.children}
+            </div>
+           
+            {/* {(dataCityInput.length) === 0 ?
                 (
                     (dataCity.length !== 0) ?
                         (
@@ -19,7 +21,7 @@ export default function WeatherInfo(){
                         </div>
                         ) :
                         (
-                            <div>Закгрузка данных</div>
+                            <div>Загрузка данных</div>
                         ) 
                 ) :
                 ( 
@@ -27,9 +29,10 @@ export default function WeatherInfo(){
                     <p>Местоположение: {dataCityInput.name}</p> 
                     <p>Температура: {dataCityInput.main.temp}&deg;</p> 
                     <p>Влажность: {dataCityInput.main.humidity}%</p> 
-                </div>) 
-                
-            }
+                </div>
+                ) 
+            } */}
+           
         </Fragment>
     )
 }
