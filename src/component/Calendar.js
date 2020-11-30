@@ -5,12 +5,14 @@ import CalendarTable from "./CalendarTable";
 import Weather from "./Weather";
 import Chart from "./Chart";
 import Time from "./Time";
+import changeLocale from "./momentUpdateLocale";
 
 
 function Calendar() {
     const [value, setValue] = useState(moment());
     const [isSelected, setIsSelected] = useState(false);
-    
+    const [locale, setLocale] = useState('ru');
+
     // Single Responsibility Principle 
     // const [calendar,setCalendar] = useState([]);
     // const [time, setTime] = useState(new Date);
@@ -24,17 +26,19 @@ function Calendar() {
     //     setCalendar(buildCalendar(value));
     // }, [value])
 
-    moment.updateLocale('en', {
-        months : [
-            "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль",
-            "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
-        ],
-        week:{dow:1}
-    });
+    changeLocale(locale);
+    // moment.updateLocale('en', {
+    //     months : [
+    //         "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль",
+    //         "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+    //     ],
+    //     week:{dow:1}
+    // });
 
     return (
         <Fragment>
             <Time />
+            <button type='button' onClick={() => setLocale('en') }></button>
             <hr className="line"/>
             <div className="container">
                 <div className="calendar">
