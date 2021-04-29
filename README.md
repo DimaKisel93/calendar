@@ -1,3 +1,5 @@
+Точная копия календаря в Windows + дополнительный функционал ввиде погодного сервиса, определяет ваш город, показывает данные о погоде в вашем городе, с возможность ввести любой город и узнать погоду для него. Данные беруться со стороннего API(api.openweathermap.org). Все это без перезагрузки страницы, т.к. используеться асинхронные запросы. Календарь написан на React.js.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
